@@ -5,6 +5,7 @@ Based on the great work of Blakadder and others.
 - https://blakadder.com/nspanel-pro/
 - https://blakadder.com/nspanel-pro-sideload/
 - https://blakadder.com/nspanel-pro-secrets/
+- https://blakadder.com/android-panel-webview/
 
 
 1. activate `adb` via cable & activate remote control
