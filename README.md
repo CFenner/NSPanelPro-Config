@@ -1,6 +1,6 @@
 # NSPanelPro-Config
 
-Based on the great work of @Blakadder and others.
+Based on the great work of Blakadder and others.
 
 - https://blakadder.com/nspanel-pro-sideload/
 - https://blakadder.com/nspanel-pro-secrets/
