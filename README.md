@@ -32,6 +32,7 @@ Based on the great work of Blakadder and others.
 # Nice to Have
 
 1. change tts https://blakadder.com/nspanel-pro-secrets/#upgrade-tts-voice
+2. https://companion.home-assistant.io/docs/notifications/notifications-basic/#text-to-speech-notifications
 1. startup sound https://blakadder.com/nspanel-pro-secrets/#turn-off-startup-sound
 
 
