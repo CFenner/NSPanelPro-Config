@@ -89,6 +89,8 @@ see https://blakadder.com/nspanel-pro-secrets/#mock-location
 1. download [`app-full-release.apk`](https://github.com/home-assistant/android/releases/latest/download/app-full-release.apk) from [latest release](https://github.com/home-assistant/android/releases/latest) 
 2. run `adb install ~/Downloads/app-full-release.apk`
 
+In the HA app settings you should activate `full screen mode` and `display always on`.
+
 ## Install NSPanel Pro Tools
 
 1. download apk from https://github.com/seaky/nspanel_pro_tools_apk/releases/latest
