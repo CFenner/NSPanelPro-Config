@@ -7,42 +7,107 @@ Based on the great work of Blakadder and others.
 - https://blakadder.com/nspanel-pro-secrets/
 - https://blakadder.com/android-panel-webview/
 
-# Basics
+⚠️ Register the device with eWe Link app before activating the developer mode!!!
 
-1. activate `adb` via cable & activate remote control
-  1. see https://blakadder.com/nspanel-pro-sideload/#disassembly
-  2. run `adb connect <ip>` and `adb tcpip 5555`
-1. set NSPanel in Zigbee router mode (ewe Link app) ⚠️ will reset the panel and all settings, do that first!
-1. install ultra small launcher
-  1. see https://blakadder.com/nspanel-pro-sideload/#install-a-launcher
-  2. run `adb install ultra-small-launcher.apk`
-  3. use launcher with `adb shell input keyevent 3`
-1. navigation bar https://blakadder.com/nspanel-pro-sideload/#enable-navigation-bar
+## Activating Android Debug Bridge
 
-2. https://de.softonic.com/download/fake-gps-location/android/post-download
-   https://fake-gps-location.de.softonic.com/android/download
-   
-1. install Home Assistant companion
-  1. download apk from [latest release](https://github.com/home-assistant/android/releases): https://github.com/home-assistant/android/releases/latest/download/app-full-release.apk
-  2. run `adb install app-full-release.apk`
-1. install nspanel pro tools https://blakadder.com/nspanel-pro-secrets/#nspanel-pro-tools
-  1. download
-1. mock location https://blakadder.com/nspanel-pro-secrets/#mock-location
+⚠️ You will not be able to run any updates after this so easily (see [nspanel_pro_roottool_apk](https://github.com/seaky/nspanel_pro_roottool_apk)), so do that first. E.g. ZigBee router mode requires v2.2.
 
-# Nice to Have
+- connect a USB cable to the device
+- run `adb connect <ip>` and `adb tcpip 5555`
 
-1. change tts, see https://blakadder.com/nspanel-pro-secrets/#upgrade-tts-voice
-  1. download `Speech Services by Google arm64-v8a` from https://www.apkmirror.com/apk/google-inc/google-text-to-speech-engine/
-  1. change engine at `settings > bedienungshilfen > text-in-sprach-ausgabe`
-1. https://companion.home-assistant.io/docs/notifications/notifications-basic/#text-to-speech-notifications
-1. startup sound https://blakadder.com/nspanel-pro-secrets/#turn-off-startup-sound
-1. set system theme to day/night auto mode
+see https://blakadder.com/nspanel-pro-sideload/#disassembly
 
+## Switch NSPanel to ZigBee router mode
 
-# Cleanup
+⚠️ This resets the panel, so do that first.
 
-1. uninstall unused apps https://blakadder.com/nspanel-pro-secrets/#debloat-apps
-2. ´adb shell pm uninstall --user 0 com.android.gl2jni´
+⚠️ This required at least v2.2 of the eWe Link app. If you happen to have the adb active and a lower version, [this](https://github.com/seaky/nspanel_pro_roottool_apk) might help.
+
+- Open the eWe Link app on the phone
+- select the device (eweLinkController app needs to  be running on the panel)
+- select settings via `...`
+- select pilot functions
+- select ZigBee mode
+- activate `router mode`
+
+Device will restart and will be reset. 
+
+## Install Ultra Small Launcher
+
+1. download [`ultra-small-launcher.apk`](https://blakadder.com/assets/files/ultra-small-launcher.apk)
+2. run `adb install ~/Downloads/ultra-small-launcher.apk`
+3. use launcher with `adb shell input keyevent 3`
+4. select ultra small launcher
+
+see https://blakadder.com/nspanel-pro-sideload/#install-a-launcher
+
+## Enable Navigation Bar
+
+1. open `settings`
+2. select `display`
+3. activate `show status bar`
+
+see https://blakadder.com/nspanel-pro-sideload/#enable-navigation-bar
+
+## Disable Startup Sounds
+
+1. select `settings`
+2. select `sound`
+3. select `advanced`
+4. disable `charging sounds`
+
+see https://blakadder.com/nspanel-pro-secrets/#turn-off-startup-sound
+
+## Enable Android Developer Settings
+
+1. open `settings`
+2. select `system`
+3. select `about`
+4. tab on `build number` till developer settings are activate (~7 times)
+
+## Enable Day / Night Mode
+
+tba
+
+## Enable GPS
+
+1. download https://de.softonic.com/download/fake-gps-location/android/post-download
+2. run `adb install ~/Downloads/...`
+3. open `settings`
+4. select `system`
+5. select `developer options`
+6. under `debugging` select `app for simulated location`
+7. select `Fake GPS`
+8. open `Fake GPS` app and select your location
+
+see https://blakadder.com/nspanel-pro-secrets/#mock-location
+  https://fake-gps-location.de.softonic.com/android/download
+
+## Install Home Assistant Companion App
+
+1. download [`app-full-release.apk`](https://github.com/home-assistant/android/releases/latest/download/app-full-release.apk) from [latest release](https://github.com/home-assistant/android/releases/latest) 
+2. run `adb install ~/Downloads/app-full-release.apk`
+
+## Install NSPanel Pro Tools
+
+1. download apk from https://github.com/seaky/nspanel_pro_tools_apk/releases/latest
+2. run `adb install ~/Downloads/...`
+
+see https://blakadder.com/nspanel-pro-secrets/#nspanel-pro-tools
+
+## Change TTS Engine
+ 
+1. download `Speech Services by Google arm64-v8a` from https://www.apkmirror.com/apk/google-inc/google-text-to-speech-engine/
+2. run `adb install ~/Downloads/com.google.android.tts_googletts.google-speech-...`
+1. change engine at `settings > bedienungshilfen > text-in-sprach-ausgabe`
+
+Use notifications for TTS: https://companion.home-assistant.io/docs/notifications/notifications-basic/#text-to-speech-notifications
+
+see https://blakadder.com/nspanel-pro-secrets/#upgrade-tts-voice
+
+## Remove Unused Apps
+
 1. ```
    adb shell pm uninstall --user 0 com.rockchip.devicetest
    adb shell pm uninstall --user 0 com.android.gl2jni
@@ -53,3 +118,5 @@ Based on the great work of Blakadder and others.
    adb shell pm uninstall --user 0 com.DeviceTest
    adb shell pm uninstall --user 0 com.cghs.stresstest
    ```
+
+see https://blakadder.com/nspanel-pro-secrets/#debloat-apps
