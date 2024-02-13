@@ -31,9 +31,12 @@ Based on the great work of Blakadder and others.
 
 # Nice to Have
 
-1. change tts https://blakadder.com/nspanel-pro-secrets/#upgrade-tts-voice
-2. https://companion.home-assistant.io/docs/notifications/notifications-basic/#text-to-speech-notifications
+1. change tts, see https://blakadder.com/nspanel-pro-secrets/#upgrade-tts-voice
+  1. download `Speech Services by Google arm64-v8a` from https://www.apkmirror.com/apk/google-inc/google-text-to-speech-engine/
+  1. change engine at `settings > bedienungshilfen > text-in-sprach-ausgabe`
+1. https://companion.home-assistant.io/docs/notifications/notifications-basic/#text-to-speech-notifications
 1. startup sound https://blakadder.com/nspanel-pro-secrets/#turn-off-startup-sound
+1. set system theme to day/night auto mode
 
 
 # Cleanup
@@ -44,4 +47,9 @@ Based on the great work of Blakadder and others.
    adb shell pm uninstall --user 0 com.rockchip.devicetest
    adb shell pm uninstall --user 0 com.android.gl2jni
    adb shell pm uninstall --user 0 com.eWeLinkNSPro.dev
+   adb shell pm uninstall --user 0 com.smatek.test
+   adb shell pm uninstall --user 0 acr.browser.barebones
+   adb shell pm uninstall --user 0 com.android.music
+   adb shell pm uninstall --user 0 com.DeviceTest
+   adb shell pm uninstall --user 0 com.cghs.stresstest
    ```
