@@ -91,6 +91,14 @@ see https://blakadder.com/nspanel-pro-secrets/#mock-location
 
 In the HA app settings you should activate `full screen mode` and `display always on`. Also disable *Home Assistant Cloud* to avoid getting *localhost* banned.
 
+### Updating
+
+From time to time the app should be updated.
+
+1. download [`latest release`](https://github.com/home-assistant/android/releases/latest/download/app-full-release.apk)
+1. run `adb connect <ip>`
+1. run `adb install -r ~/Downloads/app-full-release.apk`
+
 ## Install NSPanel Pro Tools
 
 1. download apk from https://github.com/seaky/nspanel_pro_tools_apk/releases/latest
